@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <title>AniWhere</title>
+</head>
+
+<body>
+
+  <!-- Landing Showcase -->
+  <div id="showcase">
+    <div class="showcase-header">
+      <h1 class="logo">AniWhere</h1>
+      <a class="btn btn-sm" href="#">Sign In</a>
+    </div>
+    <h1 class="cta">The latest and greatest.</h1>
+    <h2>WATCH ANYPLACE ANYTIME.</h2>
+    <a href="#" class="btn btn-lg">GET 1 MONTH FREE</a>
+  </div>
+
+  <!-- navbar menu -->
+  <div id="nav-menu">
+    <!-- used <a> instead of divs as I wanted whole container to be a link -->
+    <a class="menu-item" href="#anyplace">
+      <i class="fas fa-mobile-alt"></i>
+      <p>Watch anyplace</p>
+    </a>
+
+    <a class="menu-item lg" href="#shows-slider">
+      <i class="fas fa-tv"></i>
+      <p>Our Shows</p>
+    </a>
+
+    <a class="menu-item sm" href="#shows">
+      <i class="fas fa-tv"></i>
+      <p>Our Shows</p>
+    </a>
+
+    <a class="menu-item" href="#pricing">
+      <i class="far fa-credit-card"></i>
+      <p>Price Plans</p>
+    </a>
+
+  </div>
+
+  <!-- Watch Anyplace -->
+  <div id="anyplace">
+
+    <div class="anyplace-header">
+      <p>Watch your favorite anime shows and movies anyplace, anytime.</p>
+      <a href="" class="btn btn-md">GET 1 MONTH FREE</a>
+    </div>
+
+    <div class="anyplace-grid">
+
+      <div class="anyplace-item">
+        <div class="anyplace-img-container">
+          <!-- both img containers styled of even height -->
+          <img src="img/mobile.png" alt="">
+        </div>
+        <h5>Stream instantly or download for offline use</h5>
+        <p>Full portability. Available on phone and tablet.</p>
+      </div>
+
+      <div class="anyplace-item">
+        <div class="anyplace-img-container">
+          <!-- both img containers styled of even height -->
+          <img src="img/laptop.png" alt="">
+        </div>
+        <h5>Available on any pc</h5>
+        <p>Watch right now.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Shows Slider / Carousel -->
+  <!-- For Large Screens Only -->
+  <div id="shows-slider">
+    <!-- contains slides and buttons -->
+
+    <div id="slider-container">
+      <!-- contains slides only -->
+
+      <div class="slide current">
+        <div class="content">
+          <h1>Bleach</h1>
+          <p>Ichigo Kurosaki is a hotheaded teenager who
+            obtains the powers of a Soul Reaper. His
+            new-found powers force him to take on the
+            duties of defending humans from evil spirits.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="content">
+          <h1>Tokyo Ghoul</h1>
+          <p>Tokyo is plagued by ghouls
+            who appear to be human, but
+            feast on their flesh. A human-ghoul
+            hybrid struggles to find his place in this world.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="content reverse">
+          <h1>Attack on Titan</h1>
+          <p>With his hometown in ruins, young
+            Eren Yeager vows to destroy all of the
+            giant Titans that threaten to drive
+            the human race to extinction.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="content">
+          <h1>Berserk</h1>
+          <p>A wandering mercenary who is
+            constantly pursued by demonic
+            forces is on a quest for vengeance
+            against the man who betrayed him.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="content">
+          <h1>Cowboy Bebop</h1>
+          <p>In the year 2071, a crew of
+            interplanetary bounty hunters
+            travel the masses of space in
+            search of new bounties to collect.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="content">
+          <h1>One Punch Man</h1>
+          <p>The strongest superhero in the
+            world can crush anyone with a single blow.
+            But he has grown bored since nothing can challenge him.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="slider-buttons">
+      <button id="prev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button id="next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Shows Grid -->
+  <!-- For Smaller Screens Only -->
+  <div id="shows">
+
+    <div class="shows-header">
+      <p>Browse some of our shows.</p>
+      <a href="" class="btn btn-md">GET 1 MONTH FREE</a>
+    </div>
+
+    <div class="shows-grid">
+      <!-- Loop through db content and display column data for each grid item -->
+      {{#each shows}}
+      <div class="shows-grid-item">
+        <img src={{image}} alt="">
+        <p>{{title}}</p>
+      </div>
+      {{/each}}
+
+    </div>
+  </div>
+  </div>
+
+  <!-- Pricing Section -->
+  <div id="pricing">
+    <div class="pricing-header">
+      <p>Choose a plan and get access to all the content.</p>
+      <a href="" class="btn btn-md">GET 1 MONTH FREE</a>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-grid-item">
+        <div class="pricing-plan-container">
+          <!-- includes eveything but the button -->
+          <h4>BASIC</h4>
+          <h1>€6 / mo</h1>
+          <ul class="plan-features">
+            <li>Watch from pc, smartphone and tablet</li>
+            <li>Unlimited anime shows and movies</li>
+            <li>Free cancellation</li>
+            <li>Help center access</li>
+          </ul>
+        </div>
+        <div class="pricing-btn-container">
+          <a href="#" class="btn btn-md">GET 1 MONTH FREE</a>
+        </div>
+      </div>
+
+      <div class="pricing-grid-item">
+        <div class="pricing-plan-container">
+          <h4>STANDARD</h4>
+          <h1>€10 / mo</h1>
+          <ul class="plan-features">
+            <li>HD available</li>
+            <li>Watch on up to 2 devices at the same time</li>
+            <li>Watch from pc, smartphone and tablet</li>
+            <li>Unlimited anime shows and movies</li>
+            <li>Free cancellation</li>
+            <li>Help center access</li>
+          </ul>
+        </div>
+        <div class="pricing-btn-container">
+          <a href="#" class="btn btn-md">GET 1 MONTH FREE</a>
+        </div>
+
+      </div>
+
+      <div class="pricing-grid-item">
+        <div class="pricing-plan-container">
+          <h4>PREMIUM</h4>
+          <h1>€12 / mo</h1>
+          <ul class="plan-features">
+            <li>HD available</li>
+            <li>Ultra HD available</li>
+            <li>Watch on up to 4 devices at the same time</li>
+            <li>Watch from pc, smartphone and tablet</li>
+            <li>Unlimited anime shows and movies</li>
+            <li>Free cancellation</li>
+            <li>Help center access</li>
+          </ul>
+        </div>
+        <div class="pricing-btn-container">
+          <a href="#" class="btn btn-md">GET 1 MONTH FREE</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div id="footer">
+    <div class="footer-header">
+      <a href="mailto:nz3001@gmail.com" class="contact-email">Questions? Contact Us</a>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-grid-item">
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Investor Relations</a></li>
+          <li><a href="#">Speed Test</a></li>
+          <li><a href="#">Advertising</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-grid-item">
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Cookie Preferences</a></li>
+          <li><a href="#">Legal Notices</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-grid-item">
+        <ul>
+          <li><a href="#">Account</a></li>
+          <li><a href="#">Ways to Watch</a></li>
+          <li><a href="#">Corporate Informatio</a>n</li>
+          <li><a href="#">Popular Shows</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-grid-item">
+        <ul>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Copyright Policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Import Smooth-Scroll Script -->
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,909 @@
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+
+/* CSS Variables */
+:root {
+  --primary-color: #d65a31;
+  --primary-color--hover: #fd5f00;
+  --text-primary-color: #fff;
+  --text-secondary-color: #999;
+}
+
+/* Global */
+body {
+  width: 100vw;
+  margin: 0;
+  text-align: center;
+  background-color: #000;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--text-primary-color);
+  overflow-x: hidden;
+  /* otherwise, horizontal scroll bar is trigerred on slider */
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-primary-color);
+}
+
+.btn {
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+.btn:hover {
+  background-color: var(--primary-color--hover);
+}
+
+.btn-sm {
+  padding: 7px 17px;
+}
+
+.btn-md {
+  font-size: 1rem;
+  padding: 18px 20px;
+}
+
+/* Showcase */
+#showcase {
+  margin: 0;
+  background: url('../img/berserk2.jpg') no-repeat center center/cover;
+  max-width: 100%;
+  height: 100%;
+  padding-bottom: 7rem;
+}
+
+.showcase-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* horizontal align */
+  justify-content: center;
+  /* vertical align */
+}
+
+.logo {
+  font-size: 3rem;
+  font-family: 'Righteous', cursive;
+  color: var(--primary-color--hover);
+  flex: 1;
+  /* pushes the sign-in button to the right hand side, away from it */
+  margin-left: 4rem;
+  /* to counter sign-button margin-right and stay in the center */
+  padding-left: 34px;
+  /* to counter sign-button padding and stay in the center 17px + 17px = 34px */
+}
+
+.showcase-header .btn-sm {
+  margin-right: 4rem;
+}
+
+.cta {
+  margin-top: 120px;
+  font-size: 4rem;
+}
+
+#showcase h2 {
+  font-weight: normal;
+  font-size: 2rem;
+  margin-bottom: 60px;
+}
+
+.btn-lg {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+}
+
+/* Nav Menu */
+#nav-menu {
+  background-color: #222;
+  color: var(--text-secondary-color);
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.menu-item {
+  padding-top: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+.menu-item.sm {
+  /* link to the shows grid, to be displayed on small screens only */
+  display: none;
+}
+
+.menu-item:hover {
+  cursor: pointer;
+  color: var(--text-primary-color);
+  border-bottom: 5px solid var(--primary-color--hover);
+}
+
+#nav-menu i {
+  font-size: 2rem;
+}
+
+/* Anyplace */
+#anyplace {
+  padding-top: 2px;
+  padding-bottom: 8rem;
+}
+
+.anyplace-header {
+  margin-left: 180px;
+  margin-right: 180px;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  display: flex;
+  font-size: 1.8rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.anyplace-grid {
+  margin-left: 100px;
+  margin-right: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4rem;
+}
+
+.anyplace-img-container {
+  height: 45vh;
+  /* img containers given same height so spacing between the two images and their
+  own respective text is even. This means text for both images will be on the same
+  line horizontally */
+}
+
+.anyplace-item img {
+  width: 85%;
+}
+
+.anyplace-item h5 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.anyplace-item p {
+  color: var(--text-secondary-color);
+}
+
+/* Shows Slider / Carousel */
+#shows-slider {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.slide {
+  /* slides to be hidden except for the current slide */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  /* hide */
+  transition: opacity 0.6s ease-in-out;
+  text-align: left;
+}
+
+.slide.current {
+  /* current slide to be displayed */
+  opacity: 1;
+  /* show */
+}
+
+.content {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 5rem;
+  width: 30%;
+}
+
+.content h1 {
+  margin-bottom: 5px;
+  /* reducing gap between h1 and text */
+}
+
+/* Slider Buttons */
+#next {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+}
+
+#prev {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+}
+
+.slider-buttons button {
+  border: none;
+  background-color: transparent;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 3rem;
+}
+
+.slider-buttons button:hover {
+  color: var(--primary-color--hover);
+}
+
+.slider-buttons button:focus {
+  outline: 0;
+  /* removes the blue border which is generated upon clicking the button */
+}
+
+/* Background Images */
+.slide:first-child {
+  background: url('../img/bleach.jpg') no-repeat center center/cover;
+}
+
+.slide:nth-child(2) {
+  background: url('../img/tokyo-ghoul1.jpg') no-repeat center center/cover;
+}
+
+.slide:nth-child(3) {
+  background: url('../img/aot5-flipped.jpg') no-repeat center center/cover;
+}
+
+.slide:nth-child(4) {
+  background: url('../img/berserk1.jpg') no-repeat center center/cover;
+}
+
+.slide:nth-child(5) {
+  background: url('../img/cowboy-bebop2.jpg') no-repeat center center/cover;
+}
+
+.slide:nth-child(6) {
+  background: url('../img/one-punch3.jpg') no-repeat center center/cover;
+}
+
+/* Shows Grid */
+#shows {
+  display: none;
+}
+
+/* Price Plans */
+#pricing {
+  padding-top: 2px;
+  padding-bottom: 4rem;
+}
+
+.pricing-header {
+  margin-left: 180px;
+  margin-right: 180px;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  display: flex;
+  font-size: 1.8rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Pricing Grid */
+.pricing-grid {
+  margin-left: 100px;
+  margin-right: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4rem;
+  text-align: center;
+}
+
+.pricing-plan-container {
+  height: 50vh;
+}
+
+.pricing-plan-container h4 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  /* reduce the spacing between the plan name and price */
+}
+
+.pricing-plan-container ul {
+  list-style: none;
+  text-align: left;
+  margin-left: 2rem;
+  /* so that text appears more centered even though left aligned */
+  line-height: 1.5;
+  color: var(--text-secondary-color);
+}
+
+/* Footer */
+#footer {
+  color: var(--text-secondary-color);
+}
+
+.footer-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 100px 180px 20px 180px;
+}
+
+#footer a {
+  color: var(--text-secondary-color);
+}
+
+#footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-header a {
+  font-size: 1.2rem;
+}
+
+.footer-grid {
+  margin-left: 140px;
+  margin-right: 140px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: left;
+}
+
+.footer-grid ul {
+  list-style: none;
+  line-height: 2;
+  font-size: 14px;
+  margin-bottom: 3rem;
+}
+
+/* Media Queries */
+@media (max-width: 1120px) {
+  /* Anyplace */
+  #anyplace {
+    padding-top: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .anyplace-header {
+    margin-left: 180px;
+    margin-right: 180px;
+    margin-top: 0;
+    margin-bottom: 7rem;
+    display: block;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .anyplace-header p {
+    margin-bottom: 3rem;
+  }
+
+  .anyplace-img-container {
+    height: 30vh;
+    /* img containers given same height so spacing between the two images and their
+    own respective text is even. This means text for both images will be on the same
+    line horizontally */
+  }
+}
+
+@media (max-width: 1090px) {
+  /* Pricing */
+  #pricing {
+    padding-top: 2px;
+    padding-bottom: 4rem;
+  }
+
+  .pricing-header {
+    margin-left: 180px;
+    margin-right: 180px;
+    margin-top: 0;
+    margin-bottom: 7rem;
+    display: block;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pricing-grid {
+    margin-left: 100px;
+    margin-right: 100px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 4rem;
+    text-align: center;
+  }
+
+  .pricing-plan-container {
+    height: 50vh;
+  }
+
+  .pricing-plan-container h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    /* reduce the spacing between the plan name and price */
+  }
+
+  .pricing-plan-container ul {
+    list-style: none;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 2rem;
+    line-height: 1.5;
+    color: var(--text-secondary-color);
+  }
+}
+
+@media (max-width: 992px) {
+  /* Create a new grid section for smaller screens instead of having the slider */
+
+  /* Navbar */
+  .menu-item.lg {
+    /* link to the shows slider to be displayed on large screens only */
+    display: none;
+  }
+
+  .menu-item.sm {
+    /* link to the shows grid */
+    display: block;
+  }
+
+  /* Hide Shows Slider / Carousel */
+  #shows-slider {
+    display: none;
+  }
+
+  /* Shows Grid */
+  #shows {
+    display: block;
+    padding-top: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .shows-header {
+    margin-left: 180px;
+    margin-right: 180px;
+    margin-top: 0;
+    margin-bottom: 3.4rem;
+    display: block;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .shows-header p {
+    margin-bottom: 2rem;
+  }
+  .shows-header .btn {
+    margin-bottom: 0;
+  }
+
+  .shows-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+
+  .shows-grid-item {
+    color: #000; /* show title hidden by default */
+  }
+
+  .shows-grid img {
+    width: 100%;
+    filter: grayscale(75%);
+  }
+
+  .shows-grid-item:hover > * {
+    /* all child elements of .shows-grid-item */
+    filter: grayscale(0%);
+    color: var(--text-primary-color); /* unhide show title on hover */
+  }
+
+  @media (max-width: 768px) {
+    /* Anyplace */
+    #anyplace {
+      padding-top: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .anyplace-header {
+      margin-left: 180px;
+      margin-right: 180px;
+      margin-top: 0;
+      margin-bottom: 7rem;
+      display: block;
+      font-size: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .anyplace-grid {
+      margin-left: 100px;
+      margin-right: 100px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 4rem;
+    }
+
+    .anyplace-img-container {
+      height: 45%;
+      /* img containers given same height so spacing between the two images and their
+      own respective text is even. This means text for both images will be on the same
+      line horizontally */
+    }
+
+    .anyplace-item img {
+      width: 100%;
+    }
+
+    .anyplace-item h5 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .anyplace-item p {
+      color: var(--text-secondary-color);
+    }
+
+    /* Shows Grid */
+    .shows-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 1rem;
+    }
+  }
+
+  /* Pricing Header */
+  .pricing-header {
+    margin-left: 180px;
+    margin-right: 180px;
+    margin-top: 0;
+    margin-bottom: 7rem;
+    display: block;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Footer */
+  .footer-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 100px 240px 20px 220px;
+    /* adjusted left and right margin for footer to look better */
+  }
+
+  .footer-grid {
+    margin-left: 180px; /* adjusted margins for responsiveness */
+    margin-right: 180px; /* adjusted margins for responsiveness */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* changed grid to 2 column layout */
+    text-align: left;
+  }
+
+  @media (max-width: 600px) {
+    /* Showcase */
+    #showcase {
+      margin: 0;
+      background: url('../img/berserk2.jpg') no-repeat center center/cover;
+      max-width: 100%;
+      height: 500px;
+    }
+
+    .showcase-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .logo {
+      font-size: 2.2rem; /* reducing logo size so button can fit better */
+      font-family: 'Righteous', cursive;
+      color: var(--primary-color--hover);
+      margin-right: 180px;
+      margin-left: 0;
+    }
+
+    .showcase-header .btn-sm {
+      margin-left: auto;
+      width: 100%;
+    }
+
+    .cta {
+      margin-top: 120px;
+      font-size: 4rem;
+    }
+
+    #showcase h2 {
+      font-weight: normal;
+      font-size: 2rem;
+      margin-bottom: 60px;
+    }
+
+    /* Anyplace header */
+    .anyplace-header {
+      margin-left: 70px; /* reduced side margins for responsiveness */
+      margin-right: 70px; /* reduced side margins for responsiveness */
+      margin-top: 0;
+      margin-bottom: 7rem;
+      display: block;
+      font-size: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* shows grid header */
+    .shows-header {
+      margin-left: 100px; /* reduced side margins for responsiveness */
+      margin-right: 100px; /* reduced side margins for responsiveness */
+      margin-top: 0;
+      margin-bottom: 3.4rem;
+      display: block;
+      font-size: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Pricing Header */
+    .pricing-header {
+      margin-left: 100px; /* reduced side margins for responsiveness */
+      margin-right: 100px; /* reduced side margins for responsiveness */
+      margin-top: 0;
+      margin-bottom: 3.4rem;
+      display: block;
+      font-size: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* buttons and footer */
+    .btn-sm {
+      padding: 4px 9px;
+      width: 100%;
+    }
+
+    .btn-md {
+      font-size: 1rem;
+      padding: 14px 16px;
+    }
+
+    /* Footer */
+    #footer {
+      color: var(--text-secondary-color);
+    }
+
+    .footer-header {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin: 100px 60px 20px; /* adjusted margin for responsiveness */
+    }
+
+    #footer a {
+      color: var(--text-secondary-color);
+    }
+
+    #footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-header a {
+      font-size: 1.2rem;
+    }
+
+    .footer-grid {
+      margin-left: 20px; /* adjusted margins for responsiveness */
+      margin-right: 20px; /* adjusted margins for responsiveness */
+      display: grid;
+      grid-template-columns: repeat(
+        2,
+        1fr
+      ); /* changed grid to 2 column layout */
+      text-align: left;
+    }
+
+    .footer-grid ul {
+      list-style: none;
+      line-height: 2;
+      font-size: 14px;
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .btn-md {
+      font-size: 13px;
+      padding: 12px 10px;
+      width: 100%;
+    }
+
+    /* Showcase */
+    #showcase {
+      margin: 0;
+      background: url('../img/berserk2.jpg') no-repeat center center/cover;
+      max-width: 100%;
+      height: 100%;
+    }
+
+    .showcase-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 4rem;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2rem; /* reducing logo size so button can fit better */
+      font-family: 'Righteous', cursive;
+      color: var(--primary-color--hover);
+      margin-right: 40px;
+      margin-left: -20px;
+      float: left;
+    }
+
+    .showcase-header .btn-sm {
+      width: 50%;
+      margin-left: 0;
+      margin-right: 0;
+      float: right;
+    }
+
+    .cta {
+      margin-top: 120px;
+      font-size: 3rem;
+    }
+
+    #showcase h2 {
+      font-weight: normal;
+      font-size: 2rem;
+      margin-bottom: 60px;
+    }
+
+    .btn-lg {
+      font-size: 1.3rem;
+      padding: 1rem 2rem;
+    }
+
+    /* Anyplace */
+    #anyplace {
+      margin-bottom: 0;
+    }
+
+    /* Pricing */
+    #pricing {
+      padding-top: 2px;
+      padding-bottom: 4rem;
+    }
+
+    .pricing-header {
+      margin-left: 100px; /* reduced side margins for responsiveness */
+      margin-right: 100px; /* reduced side margins for responsiveness */
+      margin-top: 0;
+      margin-bottom: 3.4rem;
+      display: block;
+      font-size: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .pricing-grid {
+      margin-left: 0;
+      margin-right: 0;
+      display: block;
+      text-align: center;
+    }
+
+    .pricing-plan-container {
+      height: 100%;
+      margin-bottom: 2.5rem; /* add spacing between pricing text and btn */
+    }
+
+    .pricing-btn-container {
+      margin-bottom: 4rem; /* add spacing between pricing btn and next heading */
+    }
+
+    .pricing-plan-container h4 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      /* reduce the spacing between the plan name and price */
+    }
+
+    .pricing-plan-container ul {
+      list-style: none;
+      text-align: center;
+      margin-left: 0;
+      margin-right: 2rem;
+      line-height: 1.5;
+      color: var(--text-secondary-color);
+      font-size: 15px;
+    }
+  }
+
+  /* Footer */
+  #footer {
+    color: var(--text-secondary-color);
+  }
+
+  .footer-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 100px 60px 20px; /* adjusted margin for responsiveness */
+  }
+
+  #footer a {
+    color: var(--text-secondary-color);
+  }
+
+  #footer a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-header a {
+    font-size: 1.2rem;
+  }
+
+  .footer-grid {
+    margin-left: 20px; /* adjusted margins for responsiveness */
+    margin-right: 20px; /* adjusted margins for responsiveness */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* changed grid to 2 column layout */
+    text-align: left;
+  }
+
+  .footer-grid ul {
+    list-style: none;
+    line-height: 2;
+    font-size: 14px;
+    margin-bottom: 3rem;
+  }
+}
+
+/* Add Show Form */
+.logo-form {
+  margin-bottom: 3rem;
+  font-size: 3rem;
+  font-family: 'Righteous', cursive;
+  color: var(--primary-color--hover);
+}
+
+.form-section {
+  margin: 50px 100px;
+}
+
+.form-header {
+  margin-bottom: 3rem;
+}
+
+.error {
+  margin: 0 auto 1.5rem auto;
+  padding: 0.1rem;
+  font-size: 1.2rem;
+  width: 80%;
+  background-color: #dc3545;
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-control {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  width: 80%;
+}
+
+.btn-form {
+  display: block;
+  margin: auto; /* to be center aligned */
+  font-size: 1.2rem;
+  padding: 10px 30px;
+  border: none;
+  color: var(--text-primary-color);
+  cursor: pointer;
+}
