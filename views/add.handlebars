@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <title>AniWhere</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="showcase-header">
+            <h1 class="logo-form">AniWhere</h1>
+        </div>
+    </div>
+  
+  
+    <div class="form-section">
+        <h1 class="form-header">Add Show</h1>
+        <!-- Loop through errors array and display error, if any -->
+        {{#each errors}}
+            <div class="error">
+                <p>{{text}}</p>
+            </div>
+        {{/each}}
+        <form action="/" method="POST" autocomplete="off">
+            <label for="title">Show Title</label>
+            <input type="text" name="title" id="title" class="form-control" placeholder="eg. Bleach" value={{title}}>         
+            <label for="image">Image</label>
+            <input type="text" name="image" id="image" class="form-control" placeholder="eg. img/bleach.jpg" value={{image}}>
+            <button type="submit" class="btn btn-form">Add Show</button>
+        </form>  
+</div>
+
+  
+</body>
+
+</html>
