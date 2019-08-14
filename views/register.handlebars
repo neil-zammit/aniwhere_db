@@ -21,35 +21,24 @@
 
 
     <div class="form-section">
-        <h1 class="form-header">Login</h1>
-        <!-- If registration successful, display success flash message -->
-        {{#if success_msg}}
-        <div class="success">
-                <p>{{success_msg}}</p>
+        <h1 class="form-header">Register</h1>
+        <!-- Loop through errors array and display error, if any -->
+        {{#each errors}}
+            <div class="error">
+                <p>{{text}}</p>
             </div>
-        {{/if}}
-        {{#if error_msg}}
-        <div class="error">
-                <p>{{error_msg}}</p>
-            </div>
-        {{/if}}
-        {{#if error}}
-        <div class="error">
-                <p>{{error}}</p>
-            </div>
-        {{/if}}
-        <form action="/login" method="POST" autocomplete="off">
-            <label for="email">Enter your email</label>
+        {{/each}}
+        <form action="/register" method="POST" autocomplete="off">
+            <label for="email">Enter an email</label>
             <input type="email" name="email" id="email" class="form-control" value={{email}}>
-            <label for="password">Enter your password</label>
+            <label for="password">Enter a password</label>
             <input type="password" name="password" id="password" class="form-control" value={{password}}>
-            <button type="submit" class="btn btn-form">Login</button>
+            <label for="password">Confirm password</label>
+            <input type="password" name="password2" id="password2" class="form-control" value={{password2}}>
+            <button type="submit" class="btn btn-form">Register</button>
         </form>
     </div>
-    <p >
-        No Account? <a href="/register" class="account">Register Here</a>
-      </p>
-
+<p class="">Already Have An Account? <a href="/login" class="account">Login Here</a></p>
 
 </body>
 

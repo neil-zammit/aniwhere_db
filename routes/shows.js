@@ -3,9 +3,10 @@ const router = express.Router();
 const db = require('../config/database');
 const Shows = require('../models/Shows');
 const Sequelize = require('sequelize');
+const { ensureAuthenticated } = require('../config/auth');
 
 // Form Route
-router.get('/add', (req, res) =>
+router.get('/add', ensureAuthenticated, (req, res) =>
   res.render('add', {
     layout: false
   })

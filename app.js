@@ -2,6 +2,15 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const flash = require('connect-flash');
+const session = require('express-session');
+const passport = require('passport');
+
+// Init app with express
+const app = express();
+
+// Passport config
+require('./config/passport')(passport);
 
 // Import database connection variable
 const db = require('./config/database');
@@ -15,9 +24,6 @@ db.authenticate()
     console.error('Unable to connect to the databse:', err);
   });
 
-// Init app with express
-const app = express();
-
 // Set handlebars as view engine
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -28,21 +34,42 @@ app.use(express.urlencoded({ extended: false }));
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Express Session
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect Flash
+app.use(flash());
+
+// Global Variables for Flash Messages
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+});
+
 // Require Database Model
 const Shows = require('./models/Shows');
 
-// Require Home Route
+// Routes
+// Home and Welcome Routes
 app.use('/', require('./routes/index'));
 
 // Add Show Route
 app.use('/', require('./routes/shows'));
 
-// Login Route
-app.get('/login', (req, res) =>
-  res.render('login', {
-    layout: false
-  })
-);
+// Login and Register Routes
+app.use('/', require('./routes/users'));
 
 // PORT variable
 const PORT = process.env.PORT || 5000;
