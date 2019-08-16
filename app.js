@@ -84,17 +84,19 @@ app.listen(PORT, console.log(`Sever running on port ${PORT}`));
 const User = require('./models/User');
 const UserShows = require('./models/UserShows');
 const Sequelize = require('sequelize');
+const associations = require('./models/associations');
 
-// User Relation
-User.hasMany(UserShows, { foreignKey: 'user_id' });
-UserShows.belongsTo(User, { foreignKey: 'id' });
-
-// Show Relation
-Shows.hasMany(UserShows, { foreignKey: 'show_id' });
-UserShows.belongsTo(Shows, { foreignKey: 'id' });
+// Call function that associates models
+associations();
 
 // Selects all shows that a particular user watches
-Shows.findAll({ include: [{ model: UserShows, where: { user_id: '2' } }] })
+Shows.findAll({
+  // raw true returns only the dataValues
+  raw: true,
+  // Return only show title and image
+  attributes: ['title', 'image'],
+  include: [{ model: UserShows, where: { user_id: '1' } }]
+})
   .then(shows => {
     console.log(shows);
   })
