@@ -6,12 +6,12 @@ const Sequelize = require('sequelize');
 const { ensureAuthenticated } = require('../config/auth');
 
 // Welcome Page
-router.get('/welcome', (req, res) => {
+router.get('/', (req, res) => {
   res.render('welcome', { layout: false });
 });
 
 // Home Route
-router.get('/', ensureAuthenticated, (req, res) =>
+router.get('/index', ensureAuthenticated, (req, res) =>
   // Retrieve data from db and render in template engine
   Shows.findAll()
     .then(shows => {

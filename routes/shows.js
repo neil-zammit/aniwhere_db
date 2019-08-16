@@ -13,7 +13,7 @@ router.get('/add', ensureAuthenticated, (req, res) =>
 );
 
 // Add Show to db
-router.post('/', (req, res) => {
+router.post('/index', (req, res) => {
   // Retrieve data from form
   let { title, image } = req.body;
   // Create array to store errors for form validation
@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
       title,
       image
     })
-      .then(shows => res.redirect('/'))
+      .then(shows => res.redirect('/index'))
       .catch(err => console.log(err));
   }
 });

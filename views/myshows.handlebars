@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>AniWhere</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="showcase-header">
+            <h1 class="logo-form">AniWhere</h1>
+        </div>
+    </div>
+
+
+    <div class="form-section">
+        <h1 class="form-header">My Shows</h1>
+    </div>
+
+    <div class="shows-grid">
+      <!-- Loop through db content and display column data for each grid item -->
+      {{#each shows}}
+      <div class="shows-grid-item">
+        <img src={{image}} alt="">
+        <p>{{title}}</p>
+      </div>
+      {{/each}}
+
+    </div>
+    
+    <p >
+        No Shows? <a href="/addmyshows" class="account">Add Shows Here</a>
+      </p>
+
+
+</body>
+
+</html>

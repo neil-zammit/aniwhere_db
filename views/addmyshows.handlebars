@@ -20,14 +20,14 @@
   
   
     <div class="form-section">
-        <h1 class="form-header">Add Show To Landing Page</h1>
+        <h1 class="form-header">Add Show to My Shows</h1>
         <!-- Loop through errors array and display error, if any -->
         {{#each errors}}
             <div class="error">
                 <p>{{text}}</p>
             </div>
         {{/each}}
-        <form action="/index" method="POST" autocomplete="off">
+        <form action="/myshows" method="POST" autocomplete="off">
             <label for="title">Show Title</label>
             <input type="text" name="title" id="title" class="form-control" placeholder="eg. Bleach" value={{title}}>         
             <label for="image">Image</label>
@@ -35,6 +35,10 @@
             <button type="submit" class="btn btn-form">Add Show</button>
         </form>  
 </div>
+
+<p >
+        Want to View Your Shows? <a href="/myshows" class="account">View Shows Here</a>
+      </p>
 
   
 </body>

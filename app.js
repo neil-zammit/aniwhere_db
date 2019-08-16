@@ -71,6 +71,9 @@ app.use('/', require('./routes/shows'));
 // Login and Register Routes
 app.use('/', require('./routes/users'));
 
+// userShows Route
+app.use('/', require('./routes/userShows'));
+
 // PORT variable
 const PORT = process.env.PORT || 5000;
 
