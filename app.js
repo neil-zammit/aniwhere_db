@@ -79,3 +79,25 @@ const PORT = process.env.PORT || 5000;
 
 // Start Server
 app.listen(PORT, console.log(`Sever running on port ${PORT}`));
+
+// Relation Test
+const User = require('./models/User');
+const UserShows = require('./models/UserShows');
+const Sequelize = require('sequelize');
+
+// User Relation
+User.hasMany(UserShows, { foreignKey: 'user_id' });
+UserShows.belongsTo(User, { foreignKey: 'id' });
+
+// Show Relation
+Shows.hasMany(UserShows, { foreignKey: 'show_id' });
+UserShows.belongsTo(Shows, { foreignKey: 'id' });
+
+// Selects all shows that a particular user watches
+Shows.findAll({ include: [{ model: UserShows, where: { user_id: '2' } }] })
+  .then(shows => {
+    console.log(shows);
+  })
+  .catch(err => {
+    console.log('Error finding shows : ', err);
+  });
