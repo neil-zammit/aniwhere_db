@@ -24,6 +24,12 @@ db.authenticate()
     console.error('Unable to connect to the databse:', err);
   });
 
+// Db Assocations
+const associations = require('./models/associations');
+
+// Call function that associates models
+associations();
+
 // Set handlebars as view engine
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -58,9 +64,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// Require Database Model
-const Shows = require('./models/Shows');
-
 // Routes
 // Home and Welcome Routes
 app.use('/', require('./routes/index'));
@@ -79,27 +82,3 @@ const PORT = process.env.PORT || 5000;
 
 // Start Server
 app.listen(PORT, console.log(`Sever running on port ${PORT}`));
-
-// Relation Test
-const User = require('./models/User');
-const UserShows = require('./models/UserShows');
-const Sequelize = require('sequelize');
-const associations = require('./models/associations');
-
-// Call function that associates models
-associations();
-
-// Selects all shows that a particular user watches
-Shows.findAll({
-  // raw true returns only the dataValues
-  raw: true,
-  // Return only show title and image
-  attributes: ['title', 'image'],
-  include: [{ model: UserShows, where: { user_id: '1' } }]
-})
-  .then(shows => {
-    console.log(shows);
-  })
-  .catch(err => {
-    console.log('Error finding shows : ', err);
-  });
