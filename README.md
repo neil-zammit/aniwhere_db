@@ -1,6 +1,6 @@
 <h1>aniwhere_db</h1>
 
-Website connected to a database via Node.js
+Node.js web app connected to a database, featuring full CRUD functionality and user authentication.
 
 Credits:
 
